@@ -7,33 +7,50 @@ import { Button } from "@/components/Button";
 
 const SUPPORT_EMAIL = "support@wearminimal.eu";
 
-export default function ContactPage() {
-  const [opened, setOpened] = useState(false);
+type Status = "idle" | "loading" | "success" | "error";
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+export default function ContactPage() {
+  const [isOrderRelated, setIsOrderRelated] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const form = e.currentTarget;
     const data = new FormData(form);
     const name = data.get("name")?.toString().trim() ?? "";
     const email = data.get("email")?.toString().trim() ?? "";
-    const orderNumber = data.get("orderNumber")?.toString().trim();
+    const orderNumber = data.get("orderNumber")?.toString().trim() ?? "";
     const message = data.get("message")?.toString().trim() ?? "";
 
-    const subject = `Support Request — ${name || "Customer"}`;
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Order Number: ${orderNumber || "N/A"}`,
-      "",
-      "Message:",
-      message,
-    ].join("\n");
+    if (isOrderRelated && !orderNumber) {
+      setStatus("error");
+      return;
+    }
 
-    window.location.href = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-    setOpened(true);
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          isOrderRelated,
+          orderNumber,
+          message,
+        }),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+
+      setStatus("success");
+      form.reset();
+      setIsOrderRelated(false);
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -101,20 +118,45 @@ export default function ContactPage() {
                 className="w-full border border-line bg-transparent px-4 py-3 font-body text-sm transition-colors duration-250 focus:border-ink"
               />
             </div>
-            <div>
-              <label
-                htmlFor="orderNumber"
-                className="eyebrow mb-2 block text-muted"
-              >
-                Order Number — Optional
-              </label>
+
+            <label
+              htmlFor="isOrderRelated"
+              className="flex w-fit cursor-pointer items-center gap-3"
+            >
               <input
-                id="orderNumber"
-                name="orderNumber"
-                type="text"
-                className="w-full border border-line bg-transparent px-4 py-3 font-body text-sm transition-colors duration-250 focus:border-ink"
+                id="isOrderRelated"
+                type="checkbox"
+                checked={isOrderRelated}
+                onChange={(e) => setIsOrderRelated(e.target.checked)}
+                className="h-4 w-4 border border-line accent-ink"
               />
-            </div>
+              <span className="font-mono text-xs uppercase tracking-widest2 text-muted">
+                This message is about an order
+              </span>
+            </label>
+
+            {isOrderRelated && (
+              <div>
+                <label
+                  htmlFor="orderNumber"
+                  className="eyebrow mb-2 block text-muted"
+                >
+                  Order Number
+                </label>
+                <input
+                  id="orderNumber"
+                  name="orderNumber"
+                  type="text"
+                  required
+                  className="w-full border border-line bg-transparent px-4 py-3 font-body text-sm transition-colors duration-250 focus:border-ink"
+                />
+                <p className="mt-2 font-mono text-[11px] uppercase tracking-widest2 text-muted">
+                  Required for damaged items, missing deliveries, incorrect
+                  products or order questions.
+                </p>
+              </div>
+            )}
+
             <div>
               <label
                 htmlFor="message"
@@ -130,12 +172,24 @@ export default function ContactPage() {
                 className="w-full border border-line bg-transparent px-4 py-3 font-body text-sm transition-colors duration-250 focus:border-ink"
               />
             </div>
-            <Button type="submit" className="w-fit">
-              Send Message
+
+            <Button
+              type="submit"
+              className="w-fit"
+              disabled={status === "loading"}
+            >
+              {status === "loading" ? "Sending…" : "Send Message"}
             </Button>
-            {opened && (
+
+            {status === "success" && (
               <p className="font-mono text-xs uppercase tracking-widest2 text-muted">
-                Opening your email app with this message ready to send.
+                Message sent. We&apos;ll get back to you within 1–2 business
+                days.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="font-mono text-xs uppercase tracking-widest2 text-muted">
+                Something went wrong. Please email {SUPPORT_EMAIL} directly.
               </p>
             )}
           </form>
