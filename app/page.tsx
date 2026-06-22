@@ -15,11 +15,13 @@ export default function HomePage() {
       <section className="border-b border-line">
         <div className="container-px mx-auto max-w-container py-20 sm:py-28 md:py-32">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center md:gap-16 lg:gap-24">
-            <ProductImage
-              src="/products/virtus-tee/back-white.jpg"
-              alt="MINIMAL. Virtus Tee — back detail"
-              className="aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5]"
-            />
+            <Link href="/product/virtus-tee" className="group block">
+              <ProductImage
+                src="/products/virtus-tee/back-white.jpg"
+                alt="MINIMAL. Virtus Tee — back detail"
+                className="aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] transition-opacity duration-250 group-hover:opacity-75"
+              />
+            </Link>
 
             <div className="max-w-md">
               <p className="eyebrow mb-5 flex items-center gap-3">

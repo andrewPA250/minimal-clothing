@@ -34,12 +34,9 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <p className="eyebrow text-paper/50">Info</p>
+            <p className="eyebrow text-paper/50">About</p>
             <Link href="/about" className="text-sm transition-opacity duration-250 hover:opacity-60">
-              About
-            </Link>
-            <Link href="/legal/shipping-returns" className="text-sm transition-opacity duration-250 hover:opacity-60">
-              Shipping &amp; Returns
+              Our Story
             </Link>
             <Link href="/contact" className="text-sm transition-opacity duration-250 hover:opacity-60">
               Contact
@@ -52,7 +49,13 @@ export function Footer() {
               Privacy Policy
             </Link>
             <Link href="/legal/terms" className="text-sm transition-opacity duration-250 hover:opacity-60">
-              Terms of Service
+              Terms &amp; Conditions
+            </Link>
+            <Link href="/legal/shipping" className="text-sm transition-opacity duration-250 hover:opacity-60">
+              Shipping Policy
+            </Link>
+            <Link href="/legal/refunds" className="text-sm transition-opacity duration-250 hover:opacity-60">
+              Refund Policy
             </Link>
           </div>
         </div>

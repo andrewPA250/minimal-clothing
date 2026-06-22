@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Metadata } from "next";
 import { ProductImage } from "@/components/ProductImage";
 
@@ -52,11 +53,13 @@ export default function AboutPage() {
         </div>
 
         <div className="md:pt-2">
-          <ProductImage
-            src="/products/signature-tee/back-black.jpg"
-            alt="MINIMAL. Signature Tee — Simplicity Wins."
-            className="aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5]"
-          />
+          <Link href="/product/signature-tee" className="group block">
+            <ProductImage
+              src="/products/signature-tee/back-black.jpg"
+              alt="MINIMAL. Signature Tee — Simplicity Wins."
+              className="aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] transition-opacity duration-250 group-hover:opacity-75"
+            />
+          </Link>
         </div>
       </div>
     </div>
