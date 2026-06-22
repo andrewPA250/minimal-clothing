@@ -25,7 +25,10 @@ export function ProductDetail({ product }: { product: Product }) {
         <h1 className="mt-3 font-display text-4xl uppercase leading-tight tracking-wide sm:text-5xl">
           {product.name}
         </h1>
-        <p className="mt-4 font-mono text-lg">
+        <p className="mt-3 font-body text-lg italic leading-snug text-muted sm:text-xl">
+          {product.shortDescription}
+        </p>
+        <p className="mt-5 font-mono text-lg">
           €{product.basePrice.toFixed(2)}
         </p>
 
@@ -41,17 +44,25 @@ export function ProductDetail({ product }: { product: Product }) {
           />
         </div>
 
-        <details className="group mt-12 border-t border-line pt-6">
+        <details className="group mt-14 border-t border-line pt-7">
           <summary className="flex cursor-pointer list-none items-center justify-between font-mono text-xs uppercase tracking-widest2 transition-colors duration-250 hover:text-muted">
             Material &amp; Care
             <span className="font-body text-base leading-none transition-transform duration-250 group-open:rotate-45">
               +
             </span>
           </summary>
-          <ul className="mt-5 flex flex-col gap-2.5">
-            {product.details.map((d) => (
-              <li key={d} className="font-body text-sm text-muted">
-                {d}
+          <ul className="mt-6 flex flex-col">
+            {product.details.map((d, i) => (
+              <li
+                key={d}
+                className="flex items-baseline gap-5 border-b border-line py-3.5 first:pt-0 last:border-b-0 last:pb-0"
+              >
+                <span className="font-mono text-[10px] tabular-nums text-ink/35">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-body text-sm leading-relaxed text-muted">
+                  {d}
+                </span>
               </li>
             ))}
           </ul>

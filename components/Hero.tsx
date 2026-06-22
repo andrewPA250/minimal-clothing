@@ -7,7 +7,7 @@ export function Hero() {
 
   return (
     <section className="border-b border-line">
-      <div className="container-px mx-auto grid max-w-container grid-cols-1 items-stretch gap-12 py-16 sm:gap-14 sm:py-24 md:grid-cols-[1.15fr_1fr] md:gap-20 md:py-32 lg:py-40">
+      <div className="container-px mx-auto grid max-w-container grid-cols-1 items-start gap-12 py-16 sm:gap-14 sm:py-24 md:grid-cols-[1.15fr_1fr] md:gap-20 md:py-32 lg:py-40">
         <div className="flex flex-col justify-center">
           <p className="eyebrow mb-8 flex items-center gap-3">
             <span className="h-px w-6 bg-muted" aria-hidden="true" />
@@ -34,27 +34,38 @@ export function Hero() {
           </Link>
         </div>
 
-        <Link
-          href={`/product/${featured.slug}`}
-          className="group relative flex w-full flex-col"
-        >
-          <ProductImage
-            src={featured.images[featured.primaryColor]![0]}
-            alt={`${featured.name} — ${featured.primaryColor}`}
-            zoomOnGroupHover
-            priority
-            className="h-full transition-colors duration-[400ms] group-hover:border-ink md:aspect-auto"
-          />
-          <span className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-widest2 text-ink/60">
-            {featured.index}
-          </span>
-          <span className="absolute right-5 top-5 font-mono text-[10px] uppercase tracking-widest2 text-ink/60">
-            Featured
-          </span>
-          <span className="absolute bottom-5 left-5 font-display text-sm uppercase tracking-wide text-ink underline decoration-line underline-offset-4 transition-colors duration-250 group-hover:decoration-ink">
-            Shop {featured.name}
-          </span>
-        </Link>
+        <div className="flex w-full flex-col">
+          <Link
+            href={`/product/${featured.slug}`}
+            className="group relative block"
+          >
+            <ProductImage
+              src={featured.images[featured.primaryColor]![0]}
+              alt={`${featured.name} — ${featured.primaryColor}`}
+              zoomOnGroupHover
+              priority
+              className="transition-colors duration-[400ms] group-hover:border-ink"
+            />
+            <span className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-widest2 text-ink/60">
+              {featured.index}
+            </span>
+            <span className="absolute right-5 top-5 font-mono text-[10px] uppercase tracking-widest2 text-ink/60">
+              Featured
+            </span>
+          </Link>
+
+          <div className="mt-5 flex items-start justify-between gap-4 border-t border-line pt-5">
+            <p className="font-body text-base italic leading-snug text-muted sm:text-lg">
+              {featured.shortDescription}
+            </p>
+            <Link
+              href={`/product/${featured.slug}`}
+              className="group inline-flex shrink-0 items-center gap-2 whitespace-nowrap font-mono text-[11px] uppercase tracking-widest2 text-ink underline decoration-line underline-offset-4 transition-colors duration-250 hover:decoration-ink"
+            >
+              Shop {featured.name}
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

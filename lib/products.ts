@@ -46,7 +46,7 @@ export const products: Product[] = [
     index: "MIN / 001",
     shortDescription: "The foundation piece.",
     description:
-      "The piece everything else is built around. Heavyweight cotton, a clean block silhouette, and no branding on the front. Designed to be the one tee you reach for first.",
+      "The Signature Tee is the purest expression of MINIMAL. Clean lines, timeless design and no distractions. Built to work with everything and designed to remain relevant season after season.",
     details: [
       "100% heavyweight cotton, 220gsm",
       "Machine wash cold, inside out",
@@ -67,15 +67,16 @@ export const products: Product[] = [
       ],
     },
     primaryColor: "Black",
+    sizeChart: "regular",
   },
   {
     id: "2",
     slug: "focus-tee",
     name: "Focus Tee",
     index: "MIN / 002",
-    shortDescription: "Built for clarity.",
+    shortDescription: "Focus isn't talent. It's repetition.",
     description:
-      "A tighter, more structured cut with a subtle geometric mark at the chest. For when the essential needs one quiet detail and nothing more.",
+      "Designed for those who understand that progress comes from consistency, discipline and attention to what truly matters. The Focus Tee combines a clean front design with a bold back graphic inspired by classical sculpture — a reminder that clarity beats distraction.",
     details: [
       "100% heavyweight cotton, 220gsm",
       "Machine wash cold, inside out",
@@ -97,15 +98,16 @@ export const products: Product[] = [
       ],
     },
     primaryColor: "Black",
+    sizeChart: "regular",
   },
   {
     id: "3",
     slug: "you-vs-you-tee",
     name: "You vs You Tee",
     index: "MIN / 003",
-    shortDescription: "The only comparison that matters.",
+    shortDescription: "The only competition is yesterday's version of yourself.",
     description:
-      "The You vs You Tee is built around the only comparison that matters. A clean front design paired with a bold back statement, created for those who understand that progress comes from discipline, consistency and self-improvement. No outside noise. No excuses. Just you versus the person you were yesterday. Minimal on the front. Driven on the back. You vs You.",
+      "The You vs You Tee represents self-improvement, discipline and personal growth. No comparisons. No excuses. Just the daily commitment to become better than you were before.",
     details: [
       "Gildan 5000",
       "100% cotton (fiber content may vary by color)",
@@ -140,15 +142,16 @@ export const products: Product[] = [
       ],
     },
     primaryColor: "White",
+    sizeChart: "gildan5000",
   },
   {
     id: "4",
     slug: "virtus-tee",
     name: "Virtus Tee",
     index: "MIN / 004",
-    shortDescription: "Strength, discipline, self-mastery.",
+    shortDescription: "Strength. Discipline. Purpose.",
     description:
-      "Inspired by the Roman virtue of strength, discipline and self-mastery. The Virtus Tee represents the mindset of those who choose purpose over comfort and consistency over excuses. Featuring a minimalist front design and a bold classical warrior graphic on the back, it serves as a reminder that character is built through action. Designed for those who compete with themselves every day. Simplicity Wins.",
+      "Inspired by the Roman concept of Virtus, this piece represents courage, character and resilience. A minimalist front paired with a powerful back graphic creates a statement without unnecessary noise.",
     details: [
       "100% cotton",
       "Medium-weight fabric, 180 g/m² / 5.3 oz/yd²",
@@ -173,6 +176,7 @@ export const products: Product[] = [
       ],
     },
     primaryColor: "White",
+    sizeChart: "gildan5000",
   },
 ];
 

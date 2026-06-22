@@ -24,7 +24,7 @@ export function ProductCard({ product }: { product: Product }) {
           <p className="font-display text-base uppercase tracking-wide transition-colors duration-250 group-hover:text-muted">
             {product.name}
           </p>
-          <p className="mt-1.5 font-mono text-xs uppercase tracking-widest2 text-muted">
+          <p className="mt-1.5 font-body text-sm italic leading-snug text-muted">
             {product.shortDescription}
           </p>
         </div>

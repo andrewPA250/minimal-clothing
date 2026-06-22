@@ -7,6 +7,7 @@
 
 export type Color = "Black" | "White" | "Sport Grey" | "Dark Heather";
 export type Size = "XS" | "S" | "M" | "L" | "XL";
+export type SizeChart = "regular" | "gildan5000"; // which size guide table this product uses
 
 export type ProductVariant = {
   id: string; // internal id, stable regardless of data source
@@ -34,6 +35,7 @@ export type Product = {
   // any number of images per color — not limited to a front/back pair.
   images: Partial<Record<Color, string[]>>;
   primaryColor: Color; // color shown by default on cards, hero, and shop grid
+  sizeChart: SizeChart;
   printifyProductId?: string; // populated once Printify is connected
 };
 

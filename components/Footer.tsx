@@ -15,7 +15,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <p className="eyebrow text-paper/50">Shop</p>
+            <p className="eyebrow text-paper/50">Products</p>
             <Link href="/shop" className="text-sm transition-opacity duration-250 hover:opacity-60">
               All Products
             </Link>
