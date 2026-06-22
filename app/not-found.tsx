@@ -3,7 +3,10 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <div className="container-px mx-auto max-w-container py-20 text-center sm:py-32">
-      <p className="eyebrow mb-3">404</p>
+      <p className="eyebrow mb-5 flex items-center justify-center gap-3">
+        <span className="h-px w-6 bg-muted" aria-hidden="true" />
+        404
+      </p>
       <h1 className="font-display text-4xl uppercase tracking-wide">
         Nothing here.
       </h1>

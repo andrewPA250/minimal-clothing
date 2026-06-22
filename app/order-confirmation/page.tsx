@@ -3,7 +3,10 @@ import Link from "next/link";
 export default function OrderConfirmationPage() {
   return (
     <div className="container-px mx-auto max-w-container py-20 text-center sm:py-32">
-      <p className="eyebrow mb-3">Order Confirmed</p>
+      <p className="eyebrow mb-5 flex items-center justify-center gap-3">
+        <span className="h-px w-6 bg-muted" aria-hidden="true" />
+        Order Confirmed
+      </p>
       <h1 className="font-display text-4xl uppercase tracking-wide">
         Thank you.
       </h1>

@@ -94,7 +94,7 @@ export function CartDrawer() {
                         onClick={() =>
                           updateQuantity(line.variantId, line.quantity - 1)
                         }
-                        className="border border-line px-2 font-mono text-xs transition-colors duration-250 hover:border-ink hover:bg-ink hover:text-paper"
+                        className="flex h-7 w-7 items-center justify-center border border-line font-mono text-xs transition-colors duration-250 hover:border-ink hover:bg-ink hover:text-paper"
                       >
                         −
                       </button>
@@ -106,7 +106,7 @@ export function CartDrawer() {
                         onClick={() =>
                           updateQuantity(line.variantId, line.quantity + 1)
                         }
-                        className="border border-line px-2 font-mono text-xs transition-colors duration-250 hover:border-ink hover:bg-ink hover:text-paper"
+                        className="flex h-7 w-7 items-center justify-center border border-line font-mono text-xs transition-colors duration-250 hover:border-ink hover:bg-ink hover:text-paper"
                       >
                         +
                       </button>

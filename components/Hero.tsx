@@ -25,7 +25,7 @@ export function Hero() {
           </p>
           <Link
             href="/shop"
-            className="group mt-14 inline-flex w-fit items-center justify-center gap-3 border border-ink bg-ink px-10 py-4 font-mono text-xs uppercase tracking-widest2 text-paper transition-colors duration-250 hover:bg-paper hover:text-ink"
+            className="group mt-14 inline-flex w-fit items-center justify-center gap-3 border border-ink bg-ink px-8 py-4 font-mono text-xs uppercase tracking-widest2 text-paper transition-colors duration-250 hover:bg-paper hover:text-ink"
           >
             Shop Now
             <span className="transition-transform duration-250 group-hover:translate-x-1">

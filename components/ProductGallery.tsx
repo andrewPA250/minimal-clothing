@@ -46,7 +46,7 @@ export function ProductGallery({
             index={index}
             zoomOnGroupHover
             priority
-            className="aspect-[3/4] transition-colors duration-250 group-hover:border-ink md:aspect-[4/5]"
+            className="transition-colors duration-250 group-hover:border-ink"
           />
         </button>
       )}
