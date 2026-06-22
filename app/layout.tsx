@@ -24,11 +24,57 @@ const mono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+const TITLE = "MINIMAL. — Simplicity Wins.";
+const DESCRIPTION =
+  "Premium minimalist apparel built around focus, discipline and timeless design.";
+
 export const metadata: Metadata = {
-  title: "MINIMAL. — Simplicity Wins.",
-  description:
-    "Premium minimalist clothing. Black and white only. Two tees, built to outlast the season.",
   metadataBase: new URL("https://wearminimal.eu"),
+  title: TITLE,
+  description: DESCRIPTION,
+  keywords: [
+    "minimal clothing",
+    "minimalist apparel",
+    "streetwear",
+    "focus tee",
+    "virtue",
+    "discipline",
+    "premium t shirt",
+  ],
+  authors: [{ name: "MINIMAL." }],
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://wearminimal.eu",
+    siteName: "MINIMAL.",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "MINIMAL. — Simplicity Wins.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
