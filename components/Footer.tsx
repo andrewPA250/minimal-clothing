@@ -61,7 +61,15 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-paper/15 pt-6 font-mono text-[11px] uppercase tracking-widest2 text-paper/50 md:flex-row md:items-center">
-          <span>© {new Date().getFullYear()} MINIMAL.</span>
+          <div className="flex flex-col gap-2">
+            <span>© {new Date().getFullYear()} MINIMAL.</span>
+            <a
+              href="mailto:support@wearminimal.eu"
+              className="text-paper transition-opacity duration-250 hover:opacity-60"
+            >
+              support@wearminimal.eu
+            </a>
+          </div>
           <span>wearminimal.eu</span>
         </div>
       </div>
